@@ -1,0 +1,27 @@
+# simple
+class Assembly < ActiveRecord::Base
+  has_and_belongs_to_many :parts
+end
+
+class Part < ActiveRecord::Base
+  has_and_belongs_to_many :assemblies
+end
+
+
+# more complex (using :through)
+# you'll use a :through relationship when you need to work with the association object itself,
+# not just the two objects that are on either end of the association
+class Assembly < ActiveRecord::Base
+  has_many :manifests
+  has_many :parts, :through => :manifests
+end
+
+class Manifest < ActiveRecord::Base
+  belongs_to :assembly
+  belongs_to :part
+end
+
+class Part < ActiveRecord::Base
+  has_many :manifests
+  has_many :assemblies, :through => :manifests
+end

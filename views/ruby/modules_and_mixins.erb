@@ -1,0 +1,27 @@
+module ProvidesShelter
+  def protect_from_rain
+    puts "you're dry"
+  end
+end
+
+module Opener
+  def open
+    puts "open up a new one"
+  end
+end
+
+class Umbrella
+  include Opener
+  extend ProvidesShelter
+end
+
+class House
+  include Opener
+  extend ProvidesShelter
+end
+
+House.new.open
+House.protect_from_rain
+
+Umbrella.new.open
+Umbrella.protect_from_rain

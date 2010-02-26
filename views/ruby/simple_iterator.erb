@@ -1,0 +1,24 @@
+# define the [nearly useless] iterator
+def threeTimes
+  3.times do |i|
+    yield
+  end
+end
+
+class Array
+  def each_with_index
+    self.length.times do |i|
+      yield(self[i-1], i-1)
+    end
+  end
+end
+
+[1,2,3].each {|item, index| puts item }
+
+# call the iterator with a block that outputs "Hello"
+threeTimes { puts "Hello" }
+
+# outputs:
+Hello
+Hello
+Hello

@@ -1,0 +1,68 @@
+body          { text-align: center; font-family: 'Lucida Grande', 'Helvetica Nueu', 'Arial', sans-serif; }
+#wrapper      { margin: 0 auto; width: 900px; text-align: left; }
+
+/* --- CODE --- */
+pre {
+  overflow: auto;
+  padding: 0 10px .75em 10px;
+  border: 1px solid rgb(200,200,200);
+  background: #F8F8FF;
+}
+code {
+  font-family: 'Bitstream Vera Sans Mono','Courier',monospace;
+}
+
+/* --- RUBY CODE --- */
+code .symbol {
+  color: #990073;
+}
+code .keywords {
+  color: #000000;
+  font-weight: bold;
+}
+code .comment {
+  color: #99a;
+  font-style: italic;
+}
+code .constant {
+  color: #008080;
+}
+code .string {
+  color: #d14;
+}
+code .variable {
+  color: rgb(0,134,179);
+}
+code .method_call {
+  color: #008080;
+}
+code .klass {
+  color: rgb(0,134,179);
+}
+code .error {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+code .method {
+  background-color: rgb(246,246,234);
+}
+
+code .association {
+  background-color: rgb(240,240,250);
+}
+
+div#explain       {
+  border-top: 2px solid #ddd;
+/*  padding: 0 20px;*/
+}
+div#explain ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+div#explain ul li {
+  border-bottom: 1px solid #efefef;
+  margin: .5em 0;
+  padding: .5em 20px;
+  
+}

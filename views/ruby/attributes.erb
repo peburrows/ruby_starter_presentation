@@ -1,0 +1,50 @@
+# create methods to set and get the instance variables
+class Song
+  attr_accessor :duration, :artist, :title
+  
+  def initialize(name, artist, duration)
+    @name     = name
+    @artist   = artist
+    @duration = duration
+  end
+
+  def play
+    # play the song here
+  end
+  
+  def duration=(d)
+    @duration = d + 10
+  end
+  # 
+  # def duration
+  #   @duration
+  # end
+  # 
+  # def artist=(a)
+  #   @artist = a
+  # end
+  # 
+  # def artist
+  #   @artist
+  # end
+  # 
+  # def title=(t)
+  #   @title = t
+  # end
+  # 
+  # def title
+  #   @title
+  # end
+end
+
+# or, do it the easy way:
+class Song
+  attr_reader :duration, :artist, :title
+  attr_writer :duration, :artist, :title
+end
+
+# or, even easier:
+class Song
+  attr_accessor :duration, :artist, :title
+end
+

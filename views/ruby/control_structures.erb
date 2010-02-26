@@ -1,0 +1,30 @@
+s = 'lklkj'
+
+var = case s
+  when 'month'  : "it was a month"
+  when 'year'   : 'year year'
+  when 'week'   : 'weak week'
+  when 'day'    : 'day string'
+  when /day/    : 'day regex'
+else
+  "we didn't find anything"
+end
+
+puts var
+
+
+# Other syntax
+
+s = 'day'
+
+var = case s
+  when 'month'  then "it was a month"
+  when 'year'   then 'year year'
+  when 'week'   then 'weak week'
+  when 'day'    then 'day string'
+  when /day/    then 'day regex'
+else
+  "we didn't find anything"
+end
+
+puts var

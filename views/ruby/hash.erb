@@ -1,0 +1,32 @@
+@hash = Hash.new
+
+# or
+@hash = {}
+
+# or, with objects
+@hash = {
+  :name => 'Phil',
+  :age  => 25,
+  'height'  => '62',
+  :height   => 4,
+  2 => 9
+}
+
+@hash_s = {
+  'name' => 'Phil',
+  "age"  => 25
+}
+
+puts @hash[:name]
+# >> Phil
+@hash_s['name']
+@hash_s["name"]
+
+
+puts @hash[:age]
+@hash['height'] ==> '62'
+@hash[:height] ==> 4
+@hash[2]
+# >> 25
+
+:

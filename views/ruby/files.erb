@@ -1,0 +1,34 @@
+File.directory?("textfile.txt")
+# false
+
+File.file?("textfile.txt")
+# true
+
+File.exists?("textfile.txt")
+# true
+
+File.size("textfile.txt")
+# >> 2036
+
+File.extname("textfile.txt")
+# >> txt
+
+File.extname("igotnoextension")
+# >> nil
+
+
+# --------------------- #
+# Reading/Writing files #
+# --------------------- #
+
+myfile = File.open("textfile.txt", "r")
+myfile.each_line {|line| puts line }
+myfile.close
+
+File.open("textfile.txt") do |myfile|
+  myfile.each_line {|line| puts line }
+end
+
+File.open("textfile.txt", "w") do |myfile|
+  myfile.write("Howdy!")
+end

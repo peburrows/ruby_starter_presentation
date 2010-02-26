@@ -1,0 +1,43 @@
+class Post < ActiveRecord::Base
+  validates_presence_of :name, :title, :body
+  validates_length_of   :title, :maximum => 20
+end
+
+post = Post.new
+post.save
+# false
+
+post.errors
+
+# 
+# 
+
+class User < ActiveRecord::Base
+  validates_presence_of :username, :password, :email
+  validates_format_of :email, :with => /ljklkj/
+end
+
+user = User.new(:password => 'secret', :username => 'peburrows')
+user.password
+# 'secret'
+
+{
+  :id => 1,
+  :action => 'new',
+  :controller => 'user',
+  :user => {
+    :username => 'peburrows',
+    :password => 'secret',
+    :email    => 'peburrows@gmail.com'
+  }
+}
+
+@user = User.new(params[:user])
+@user.password
+# secret
+@user.save
+# true
+@user.save!
+
+User.create(params[:user])
+@user = User.last

@@ -1,0 +1,18 @@
+class File
+  # define a new class method on File
+  def self.openAndProcess(*args)
+    f = File.open(*args)
+    yield f
+    f.close()
+  end
+end
+
+File.openAndProcess("testfile", "r") do |aFile|
+  print while aFile.gets
+end
+
+# outputs:
+This is line one
+This is line two
+This is line three
+# And so on...

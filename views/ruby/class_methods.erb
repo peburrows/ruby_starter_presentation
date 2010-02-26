@@ -1,0 +1,39 @@
+# two different ways to define class method
+class Song
+  TOTAL_SONGS_ALLOWED = 5
+  
+  def Song.count
+    total_number_of_songs
+  end
+  
+  def total_number_of_songs
+    self.class.total_number_of_songs
+  end
+  
+  def self.total_number_of_songs
+    return @@songs.length
+  end
+  
+  def self.for_artist(artist)
+    find_for_artist(artist)
+  end
+end
+
+
+def return_prematurely
+  same_value = if @songs.length < 10
+    do_stuff
+    'not enough songs'
+  else
+    execute_code
+    'plenty of songs'
+  end 
+  
+  return return_value + ', okay?'
+end
+
+
+some_value = return_value = 'not enough songs'
+
+Song::TOTAL_SONGS_ALLOWED
+Song::ALLOW_PLAYING = false

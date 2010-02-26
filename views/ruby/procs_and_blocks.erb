@@ -1,0 +1,38 @@
+myproc = Proc.new {|what| puts "I love #{what}!"}
+myproc.call("bacon")
+# >> I love bacon
+
+# return a Proc from a function
+def make_show_name(show)
+  Proc.new {|host| show + " with " + host}
+end
+
+show1 = make_show_name("Practical Cannibalism")
+show2 = make_show_name("Cotillions in the Amazon")
+
+show1.call("H. Annabellector")
+# Practical Cannibalism with H. Annabellector
+
+show2.call("Jack Hannah")
+# Cotillions in the Amazon with Jack Hannah
+
+show1.call("Kirstie Alley")
+# Practical Cannibalism with Kirstie Alley
+
+
+# Another way to create a Proc object is to bind a block of code using the lambda method;
+# calling this method is [essentially] equivalent to calling Proc.new
+myproc = lambda {|what| puts "I love #{what}"}
+myproc.call("money")
+# >> I love money
+
+
+# however, there are slight differences...
+lproc = lambda {|a,b| puts "#{a + b} &lt;- the sum"}
+nproc = Proc.new {|a,b| puts "#{a + b} &lt;- the sum"}
+
+nproc.call(1, 2, 3)
+# >> 3 &lt;- the sum
+
+lproc.call(1, 2, 3)
+# !ArgumentError (wrong number of arguments (3 for 2))

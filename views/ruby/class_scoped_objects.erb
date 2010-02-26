@@ -1,0 +1,37 @@
+# class level constant
+class Boogeyman
+  MY_BOSS = 'Mr. Boogeyman'
+  @@monster_count = 0
+  
+  attr_accessor :name, :location
+
+  def initialize(n, l)
+    @name     = n
+    @location = l
+    
+    # set the class variables
+    @@latest            = @name
+    @@latest_location   = @location
+    @@monster_count += 1
+    # @@monster_count = @@monster_count + 1
+  end
+end
+
+monster1 = Boogeyman.new("Macabre Mac", "Seattle, WA")
+monster1.name
+# "Macabre Mac"
+
+puts Boogeyman.latest
+# >> Macabre Mac
+
+puts Boogeyman.latest_location
+# >> Seattle, WA
+
+puts Boogeyman.monster_count
+# >> 1
+
+monster2 = Boogeyman.new("Gory Gary", "Reston, WV")
+puts Boogeyman.latest
+# >> Gory Gary
+puts Boogeyman.monster_count
+# >> 2

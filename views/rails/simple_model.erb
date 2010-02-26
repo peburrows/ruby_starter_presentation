@@ -1,0 +1,23 @@
+class User < ActiveRecord::Base
+end
+
+user = User.new
+# &lt;User:0x2642900 @attributes={"username"=>nil, "password"=>nil}, @new_record=true>
+
+user.class
+# User
+
+user.new_record?
+# true
+
+user.username = 'peburrows'
+user.password = 'secret'
+
+user.save
+# true
+
+user.new_record?
+# false
+
+user.id
+# 1

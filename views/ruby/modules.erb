@@ -1,0 +1,41 @@
+module Movement
+  def run
+    puts "I'm running!"
+  end
+
+  def walk
+    puts "I'm walking a bit briskly!"
+  end
+
+  def crawl
+    puts "I'm so slowwww!"
+  end
+end
+
+class Man
+  # mix it in
+  include Movement
+  def jump 
+    puts "I'm bipedal and I can jump like a fool!"
+  end
+end
+
+class Sloth
+  # mix it in
+  include Movement
+  def flop
+    puts "It's all a lie...all I can do is flop around."
+  end
+end
+
+man = Man.new
+man.run
+# >> I'm running!
+
+slothy = Sloth.new
+slothy.flop
+# >> It's all a lie...all I can do is flop around.
+
+
+# a NOTE:
+# `include` adds instance methods while `extend` adds class methods

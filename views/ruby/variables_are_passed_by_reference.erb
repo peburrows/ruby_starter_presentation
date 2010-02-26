@@ -1,0 +1,11 @@
+first_var = "i hold a reference"
+# >> i hold a reference
+
+second_var = first_var
+# >> i hold a reference
+
+# Chops off the last character of the string → i hold a referenc
+second_var.chop! 
+
+first_var
+# >> i hold a referenc

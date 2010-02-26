@@ -1,0 +1,24 @@
+# protected
+class Boogeyman
+  protected  
+    def are_you_a_monster?(whosasking)
+      puts "Yes, #{whosasking}, I am a monster!"
+      return true
+    end
+end
+
+
+# private
+class Boogeyman
+  private
+    def phone_home(message)
+      puts message
+    end
+  
+  public
+    def scare(who)
+      phone_home("I just scared #{who}")
+    end
+end
+
+monster.scare('me')

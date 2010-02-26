@@ -1,0 +1,26 @@
+begin
+  t = Time.now
+  t.tomorrow
+rescue NoMethodError => e
+  puts "we encountered an error"
+  puts e.message
+end
+
+def quack(duck)
+  if duck.respond_to?(:quack)
+    duck.quack
+  else
+    raise NoMethodError, 'duck does not respond to :quack'
+  end
+end
+
+
+
+# Rails has a <strong>bunch</strong> of custom Exception classes, for instance:
+ActiveRecord::RecordNotFound
+
+# which is essentially defined as such:
+class ActiveRecord
+  class RecordNotFound < StandardError
+  end
+end

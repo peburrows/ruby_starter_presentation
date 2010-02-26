@@ -1,0 +1,15 @@
+class JukeboxButton < Button
+  def initialize(label, &action)
+    # call the parent initializer
+    super(label)
+    @action = action
+  end
+
+  def buttonPressed
+    @action.call
+  end
+end
+
+bStart = JukeboxButton.new("Start") { songList.start }
+bPause = JukeboxButton.new("Pause") { songList.pause }
+

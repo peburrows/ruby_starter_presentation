@@ -1,0 +1,10 @@
+<ul>
+  <li>if no explicit receiver is listed, then <code class="ruby">self</code> is assumed - this is how private methods are implemented, you can't call them even with self.</li>
+  <li><strong>call via a string or symbol</strong> by using the <code class="ruby">send</code> method on the object:
+    <pre><code class="ruby">
+      order.send(:total)
+      # is the same as calling:
+      order.total
+    </code></pre>
+  </li>
+</ul>

@@ -1,0 +1,45 @@
+# Object hierarchy
+puts File.class
+# >> Class
+
+puts File.superclass
+# >> Object
+
+puts Object.superclass
+# >> nil
+
+#------------------#
+# Defining A Class #
+#------------------#
+
+class MyClass < Object
+end
+
+
+# Another example
+class Song
+  attr_accessor :name, :artist, :duration
+  
+  def initialize(n, a, d)
+    @name     = n
+    @artist   = a
+    @duration = d
+  end
+  
+  def play
+    # play the song here
+  end
+end
+
+
+# Song.new calls the initialize method in the song class
+song = Song.new('Cemetary', 'Say Anything', 236)
+
+song.name
+# 'Cemetary'
+
+song.artist
+# 'Say Anything'
+
+# call the play method
+song.play

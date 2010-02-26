@@ -1,0 +1,50 @@
+# See <a href="http://railstips.org/blog/archives/2006/11/18/class-and-instance-variables-in-ruby/">this article on RailsTips.org</a> for a thourough overview of the issue
+
+class Polygon
+  @@sides = 10
+  def self.sides
+    @@sides
+  end
+end
+
+puts Polygon.sides # => 10
+
+# 
+# a child class can change its parent class's variables when done this way
+
+class Triangle < Polygon
+  @@sides = 3
+end
+
+puts Triangle.sides # => 3
+puts Polygon.sides # => 3
+
+class Rectangle < Polygon
+  @@sides = 4
+end
+
+puts Polygon.sides # => 4
+
+
+# ========================= #
+# the best way to do things #
+# ========================= #
+
+class Polygon
+  @sides = 10  
+  
+  class << self
+    attr_accessor :sides
+  end
+end
+
+class Pentagon < Polygon
+  @sides = 5
+end
+
+puts Polygon.sides # => 10
+puts Pentagon.sides # => 5
+
+Pentagon.sides = 7
+puts Polygon.sides # => 10
+puts Pentagon.sides # => 7

@@ -1,0 +1,38 @@
+# Two ways to do it:
+
+# 1) check to see if a block was passed
+def takeBlock(p1)
+  if block_given?
+    yield(p1)
+  else
+    p1
+  end
+end
+
+takeBlock("no block")
+# >> "no block"
+
+takeBlock("no block") { |s| s.sub(/no /, '') }
+# >> "block"
+
+
+# 2) include a block in the parameter list
+# if the last parameter in a method definition is prefixed with an ampersand,
+# any associated block is converted to a Proc object,
+# and that object is assigned to the parameter.
+
+class TaxCalculator
+  def initialize(name, &block)
+    @name, @block = name, block
+  end
+
+  def getTax(amount)
+    "#@name on #{amount} = #{ @block.call(amount) }"
+  end
+end
+
+tc = TaxCalculator.new("Sales tax") { |amt| amt * 0.075 }
+tc.getTax(100)
+# >> "Sales tax on 100 = 7.5"
+tc.getTax(250)
+# >> "Sales tax on 250 = 18.75"

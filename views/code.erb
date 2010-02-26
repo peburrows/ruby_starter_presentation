@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title %></title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <script src="/javascripts/code_highlighter.js"></script>
+    <script src="/javascripts/ruby.js"></script>
+    
+    <script src="/javascripts/cufon.js" type="text/javascript"></script>
+    <script src="/javascripts/fontin.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+       Cufon.replace('h1', {
+          textShadow: 'rgb(220,220,220) 1px 2px'
+       });
+     </script>
+     
+     
+  </head>
+  <body class="code">
+  <div id="wrapper">
+    <h1><%= @title %></h1>
+    <p><small><a href="/">back to list</a></small></p>
+
+    <% if @code %>
+      <pre><code class="ruby">
+    <% else %>
+      <div id="explain">
+    <% end %>
+    
+<%= yield %>
+
+    <% if @code %>
+      </code></pre>
+    <% else %>
+      </div>
+    <% end %>
+
+  </div>
+  </body>
+</html>

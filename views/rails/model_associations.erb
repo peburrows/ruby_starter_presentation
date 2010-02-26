@@ -1,0 +1,32 @@
+class Author < ActiveRecord::Base
+  has_many :stories
+end
+
+class Story < ActiveRecord::Base
+  belongs_to :author
+  has_and_belongs_to_many :topics
+end
+
+class Topic < ActiveRecord::Base
+  has_and_belongs_to_many :stories
+end
+
+
+# -------------------------- #
+# a little bit more complex: #
+# -------------------------- #
+
+class Physician < ActiveRecord::Base
+  has_many :appointments
+  has_many :patients, :through => :appointments
+end
+
+class Appointment < ActiveRecord::Base
+  belongs_to :physician
+  belongs_to :patient
+end
+
+class Patient < ActiveRecord::Base
+  has_many :appointments
+  has_many :physicians, :through => :appointments
+end
